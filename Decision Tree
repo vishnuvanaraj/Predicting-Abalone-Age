@@ -1,0 +1,33 @@
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.tree inport DecisionTreeRegressor
+from sklearn.metrics import mean_squared_error, r2_score
+Import matplotlib.pyplot as plt
+url = "https://archive.ics.uci.edu/ml/nachine-learning-databases/abalone/abalone.data"
+names = ['Sex", "Length", "Diameter", "Height", "whole weight', 'Shucked weight", "Viscera weight', 'Shell weight", "Rings']
+abalone_data pd.read_csv(url, names-names)
+abalone_data pd.get_dummies(abalone_data, columns=['Sex'])
+abalone_data['Age'] abalone_data['Rings'] +1.5
+abalone_data.drop("Rings', axis-1, inplace=True)
+X abalone_data.drop("Age", axis-1)
+abalone_data['Age']
+X_train, X_test, y_train, y_test train_test_split(X, y, test_size-8.2, random_state-42)
+dt nodel DecisionTreeRegressor() dt model.fit(X_train, y_train)
+dt_y_pred dt_model.predict(X_test)
+dt use mean squared_error(y_test, dt_y_pred)
+print("Decision Tree Mean Squared Error:", dt_mse)
+dt_r2r2_score(y_test, dt_y_pred)
+print("Decision Tree R-squared Score:", dt_r2)
+print("\n")
+plt.figure(figsize(8, 6))
+plt.scatter(y_test, dt y pred, color 'blue', alpha-8.5)
+plt.plot((y_test.min(), y_test.max()), (y_test.min(), y_test.max()], 'k', lw-2) Plot the diagonal
+plt.xlabel('Actual Age')
+plt.ylabel('Predicted Age')
+plt.title("Actual vs Predicted Ages (Decision Tree)')
+plt.grid(True)
+plt.show()
+predictions dfpd.DataFrame(('Actual Age': y test, 'Predicted Age: dt y_pred))
+print("\n")
+print(predictions df.head())
